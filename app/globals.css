@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-warm: #FAF9F5;
+    --bg-surface: #FFFFFF;
+    --bg-subtle: #F4F3EE;
+    --bg-card: #FFFFFF;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    --accent-emerald: #0D5C46;
+    --accent-emerald-hover: #083E2F;
+    --accent-emerald-light: #ECFDF5;
+    --accent-emerald-border: #A7F3D0;
+    --border-subtle: #E6E4DD;
+    --border-strong: #D1CFCE;
+  }
+
+  html {
+    background-color: var(--bg-warm);
+    color: var(--text-primary);
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FAF9F5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D8D6CE;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B5B2A6;
+  }
+}
+
+/* Micro-animations and utility animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Card hover and border utility */
+.fintech-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E6E4DD;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fintech-card:hover {
+  border-color: #D4D1C7;
+  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.06), 0 4px 8px -2px rgba(15, 23, 42, 0.02);
+}
+
+/* Tabular figures for numbers */
+.num-mono {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Badge highlight */
+.badge-emerald {
+  background-color: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+}
